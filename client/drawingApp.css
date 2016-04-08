@@ -1,0 +1,71 @@
+.bordered-box {
+  width: 660px;
+  height: 400px;
+  padding: 5px;
+  margin-top: 8px;
+  margin-left: 4px;
+  border: 2px solid black;
+}
+
+.but-ft button {
+  color: white;
+}
+.but-bg button {
+  background-color: slategray;
+}
+.js-thicker, .js-thinner {
+  color: yellow !important;
+}
+.js-red, .js-redF {
+  background-color: red;
+}
+.js-blue, .js-blueF {
+  background-color: blue;
+}
+.js-green, .js-greenF {
+  background-color: green;
+}
+.js-yellow, .js-yellowF {
+  background-color: yellow;
+}
+.js-black, .js-blackF {
+  background-color: black;
+}
+.js-brown, .js-brownF {
+  background-color: brown;
+}
+.js-purple, .js-purpleF {
+  background-color: purple;
+}
+.js-aqua, .js-aquaF {
+  background-color: aqua;
+}
+.js-grey, .js-greyF {
+  background-color: grey;
+}
+.js-pink, .js-pinkF {
+  background-color: deeppink;
+}
+.js-lgreen, .js-lgreenF {
+  background-color: lightgreen;
+}
+.js-orange, .js-orangeF {
+  background-color: orange;
+}
+.js-linen, .js-linenF {
+  background-color: linen;
+}
+.js-tomato, .js-tomatoF {
+  background-color: tomato;
+}
+.js-burlywood, .js-burlywoodF {
+  background-color: burlywood;
+}
+.js-navy, .js-navyF {
+  background-color: navy;
+}
+
+.but-type {
+  font-weight: bolder;
+  font-size: 1.3em;
+}

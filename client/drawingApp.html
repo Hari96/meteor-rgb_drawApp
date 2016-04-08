@@ -1,0 +1,103 @@
+<head>
+  <title>rgb drawing App</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="layout">
+  {{> yield "header"}}
+
+  {{> yield "main"}}
+
+</template>
+
+<template name = "welcome_page">
+
+  <h1>Welcome to my Drawing App</h1>
+  <div class="container">
+    <a class="bg-info lead" href="/drawing_page">Drawing Page</a>
+  </div>
+</template>
+
+<template name="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          RGB Drawing App
+        </a>
+      </div>
+     </div>
+  </nav>
+</template>
+
+<template name="wall">
+  <div class="container">
+    <h1 class="text-center">Draw along together!</h1>
+    <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
+      <button type="button" class='js-start btn btn-info'>Start</button>
+      <button type="button" class='js-clear btn btn-warning'>Clear</button>
+    </div>
+    <br>
+    <div class="btn-toolbar but-ft but-bg" role="toolbar" aria-label="...">
+      <button type="button" class="js-thicker btn">Thicker</button>
+      <button type="button" class="js-thinner btn">Thinner</button>
+      <button type="button" class='js-circle btn'>Circle</button>
+      <button type="button" class='js-rectangle btn'>Rectangle</button>
+      <button type="button" class='js-square btn'>Square</button>
+      <button type="button" class='js-ellipse btn'>Ellipse</button>
+      <button type="button" class='js-line btn'>Line</button>
+    </div>
+    <br>
+    <p class="but-type">Line/border colours:</p>
+    <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
+      <button type="button" class="js-red btn"></button>
+      <button type="button" class="js-blue btn"></button>
+      <button type="button" class="js-green btn"></button>
+      <button type="button" class="js-yellow btn"></button>
+      <button type="button" class="js-black btn"></button>
+      <button type="button" class="js-brown btn"></button>
+      <button type="button" class="js-purple btn"></button>
+      <button type="button" class="js-aqua btn"></button>
+      <button type="button" class="js-grey btn"></button>
+      <button type="button" class="js-pink btn"></button>
+      <button type="button" class="js-lgreen btn"></button>
+      <button type="button" class="js-orange btn"></button>
+      <button type="button" class="js-linen btn"></button>
+      <button type="button" class="js-tomato btn"></button>
+      <button type="button" class="js-burlywood btn"></button>
+      <button type="button" class="js-navy btn"></button>
+    </div>
+    <br>
+    <p class="but-type">Shape fill colours:</p>
+    <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
+      <button type="button" class="js-redF btn"></button>
+      <button type="button" class="js-blueF btn"></button>
+      <button type="button" class="js-greenF btn"></button>
+      <button type="button" class="js-yellowF btn"></button>
+      <button type="button" class="js-blackF btn"></button>
+      <button type="button" class="js-brownF btn"></button>
+      <button type="button" class="js-purpleF btn"></button>
+      <button type="button" class="js-aquaF btn"></button>
+      <button type="button" class="js-greyF btn"></button>
+      <button type="button" class="js-pinkF btn"></button>
+      <button type="button" class="js-lgreenF btn"></button>
+      <button type="button" class="js-orangeF btn"></button>
+      <button type="button" class="js-linenF btn"></button>
+      <button type="button" class="js-tomatoF btn"></button>
+      <button type="button" class="js-burlywoodF btn"></button>
+      <button type="button" class="js-navyF btn"></button>
+      <button type="button" class="js-whiteF btn btn-default btn-xs">white</button>
+    </div>
+  </div>
+  <br>
+
+    {{> canvas}}
+
+</template>
+
+<template name="canvas">
+  <div id="canvas" class="bordered-box"></div>
+</template>
