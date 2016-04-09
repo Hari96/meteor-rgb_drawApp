@@ -16,11 +16,7 @@ Canvas = function () {
    };
 
   self.draw = function(data_line, data_circle, data_rect, data_square, data_ellipse) {
-    console.log(svg);
     if ((data_line.length < 1) && (data_circle.length < 1) && (data_rect.length < 1) && (data_square.length < 1) && (data_ellipse.length < 1)) {
-      console.log(data_line.length);
-      console.log(data_circle.length);
-      console.log(data_rect.length);
       self.clear();
       return;
     }
@@ -29,7 +25,7 @@ Canvas = function () {
       // Remember to format the data properly in markPoints
       svg.selectAll('circle').data(data_circle, function(d) { return d._id; })
         .enter().append('circle')
-        .attr('r', 10)
+        .attr('r', function (d) { return d.h; })
         .attr('cx', function (d) { return d.x; })
         .attr('cy', function (d) { return d.y; })
         .attr("stroke-width", function (d) { return d.w; })
@@ -45,11 +41,11 @@ Canvas = function () {
         .attr('stroke-width', function (d) { return d.w; })
         .attr("stroke", function (d) { return d.c; })
         .attr("stroke-linejoin", "round");
-  
+
       svg.selectAll('rect').data(data_rect, function(d) { return d._id; })
         .enter().append('rect')
-        .attr('width', 80)
-        .attr('height', 40)
+        .attr('width', function(d) { return d.l; })
+        .attr('height', function(d) { return d.h; })
         .attr('x', function(d) { return d.x; })
         .attr('y', function(d) { return d.y; })
         .attr('stroke-width', function (d) { return d.w; })
@@ -58,8 +54,8 @@ Canvas = function () {
 
       svg.selectAll('rect').data(data_square, function(d) { return d._id; })
         .enter().append('rect')
-        .attr('width', 50)
-        .attr('height', 50)
+        .attr('width', function(d) { return d.h; })
+        .attr('height', function(d) { return d.h; })
         .attr('x', function(d) { return d.x; })
         .attr('y', function(d) { return d.y; })
         .attr('stroke-width', function (d) { return d.w; })
@@ -70,8 +66,8 @@ Canvas = function () {
         .enter().append('ellipse')
         .attr('cx', function (d) { return d.x; })
         .attr('cy', function (d) { return d.y; })
-        .attr('rx', 80)
-        .attr('ry', 40)
+        .attr('rx', function (d) { return d.l; })
+        .attr('ry', function (d) { return d.h; })
         .attr('stroke-width', function (d) { return d.w; })
         .attr('stroke', function (d) { return d.c; })
         .attr('fill', function (d) { return d.f; });

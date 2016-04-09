@@ -10,6 +10,8 @@ var strokeColor = "black";
 var shape = "";
 var fillColor = "white";
 var data_line, data_circle, data_rect, data_square, data_ellipse;
+var width = 80, height = 40;
+var latest;
 
 Meteor.startup(function () {
   canvas = new Canvas();
@@ -20,8 +22,8 @@ Meteor.startup(function () {
     data_rect = points.find({s:"rect"}).fetch();
     data_square = points.find({s:"square"}).fetch();
     data_ellipse = points.find({ s:"ellipse"}).fetch();
-  if (canvas) {
-      canvas.draw(data_line, data_circle, data_rect, data_square, data_ellipse);
+    if (canvas) {
+        canvas.draw(data_line, data_circle, data_rect, data_square, data_ellipse);
     }
   });
 });
@@ -45,7 +47,28 @@ Router.route('drawing_page', function () {
   this.render("wall", {to:"main"});
 });
 
+Router.route('help_page', function () {
+  this.render("navbar", {to:"header"});
+  this.render("help", {to:"main"});
+});
+
 Template.wall.events({
+
+  "click .js-remove": function() {
+    latest = points.findOne({}, {sort: {date: -1, limit: 1}});
+    points.remove(latest._id);
+    canvas = new Canvas();
+    Deps.autorun( function() {
+       data_line = points.find({s:"line"}).fetch();
+       data_circle = points.find({s:"circle"}).fetch();
+       data_rect = points.find({s:"rect"}).fetch();
+       data_square = points.find({s:"square"}).fetch();
+       data_ellipse = points.find({ s:"ellipse"}).fetch();
+       if (canvas) {
+           canvas.draw(data_line, data_circle, data_rect, data_square, data_ellipse);
+       }
+     });
+  },
 
   "click .js-start": function() {
     canvas.clear();
@@ -292,7 +315,22 @@ Template.wall.events({
 
   "click .js-ellipse": function() {
     shape = "ellipse";
-  }
+  },
+
+  "click .js-small": function() {
+    width = 60;
+    height = 30;
+  },
+
+  "click .js-medium": function() {
+    width = 80;
+    height = 40;
+  },
+
+  "click .js-large": function() {
+    width = 100;
+    height = 50;
+  },
 
 })
 
@@ -337,7 +375,9 @@ var markPoint = function() {
         // We can also use strokeColor, defined by a selection
         c: strokeColor,
         s: shape,
-        f: fillColor
+        f: fillColor,
+        l: width,
+        h: height
       }); // end of points.insert()
 
         lastX = (event.pageX - offset.left);

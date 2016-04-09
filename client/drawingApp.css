@@ -13,9 +13,6 @@
 .but-bg button {
   background-color: slategray;
 }
-.js-thicker, .js-thinner {
-  color: yellow !important;
-}
 .js-red, .js-redF {
   background-color: red;
 }
@@ -68,4 +65,7 @@
 .but-type {
   font-weight: bolder;
   font-size: 1.3em;
+}
+.lfont {
+  font-size: 1.2em;
 }

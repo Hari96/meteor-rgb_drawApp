@@ -14,10 +14,32 @@
 </template>
 
 <template name = "welcome_page">
-
-  <h1>Welcome to my Drawing App</h1>
   <div class="container">
-    <a class="bg-info lead" href="/drawing_page">Drawing Page</a>
+    <h1>Welcome to my Drawing App</h1>
+    <div class="well lfont">
+      <strong>To reviewers:</strong> I have found that using iron:router prevents a re-drawing of the canvas after a page refresh. <br>
+      I could not find a solution to this - see below for what to do if you refresh the drawing page.<br>
+      For some reason the App. does not work properly in the Firefox browser.
+    </div>
+    <div class="well lfont">
+      Instructions for drawing:
+      <ul>
+        <li>If you happen to refresh the page, or re-open browser later, do the following:
+          <ol>
+            <li>click start button</li>
+            <li> click line button</li>
+            <li>click on canvas to re-draw</li>
+          </ol>
+        </li>
+        <li>To start a new drawing, click clear button, then click start button.</li>
+        <li>Lines can have different colours; and varied thickness by using thicker or thinner buttons.</li>
+        <li>You have 4 shape choices and for each shape you can choose different fill or border colours.</li>
+        <li>For each shape you can also choose three different sizes.</li>
+        <li>Shapes are just placed where you click on the drawing.</li>
+        <li>You can drag shapes around for interesting effects.</li>
+      </ul>
+      When you are ready go to <a class="bg-info lead" href="/drawing_page">Drawing Page</a>, and start drawing!
+    </div>
   </div>
 </template>
 
@@ -29,30 +51,35 @@
           RGB Drawing App
         </a>
       </div>
-     </div>
+    </div>
   </nav>
 </template>
 
 <template name="wall">
   <div class="container">
+    <button type="button" class="btn-default pull-right"><a href="/help_page">HELP</a></button>
     <h1 class="text-center">Draw along together!</h1>
     <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
-      <button type="button" class='js-start btn btn-info'>Start</button>
-      <button type="button" class='js-clear btn btn-warning'>Clear</button>
+      <button type="button" class='js-start btn btn-primary'>Start</button>
+      <button type="button" class='js-clear btn btn-danger'>Clear</button>
+      <button type="button" class="js-thicker btn btn-info">Thicker</button>
+      <button type="button" class="js-thinner btn btn-info">Thinner</button>
+      <button type="button" class='js-line btn btn-success'>Line</button>
     </div>
     <br>
-    <div class="btn-toolbar but-ft but-bg" role="toolbar" aria-label="...">
-      <button type="button" class="js-thicker btn">Thicker</button>
-      <button type="button" class="js-thinner btn">Thinner</button>
-      <button type="button" class='js-circle btn'>Circle</button>
-      <button type="button" class='js-rectangle btn'>Rectangle</button>
-      <button type="button" class='js-square btn'>Square</button>
-      <button type="button" class='js-ellipse btn'>Ellipse</button>
-      <button type="button" class='js-line btn'>Line</button>
+    <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
+
+      <button type="button" class='js-circle btn btn-xs btn-success'>Circle</button>
+      <button type="button" class='js-rectangle btn btn-xs btn-success'>Rectangle</button>
+      <button type="button" class='js-square btn btn-xs btn-success'>Square</button>
+      <button type="button" class='js-ellipse btn btn-xs btn-success'>Ellipse</button>
+      <button type="button" class='js-small btn btn-xs btn-warning'>Small</button>
+      <button type="button" class='js-medium btn btn-xs btn-warning'>Medium</button>
+      <button type="button" class='js-large btn btn-xs btn-warning'>Large</button>
     </div>
     <br>
     <p class="but-type">Line/border colours:</p>
-    <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
+    <div class="btn-toolbar" role="toolbar" aria-label="...">
       <button type="button" class="js-red btn"></button>
       <button type="button" class="js-blue btn"></button>
       <button type="button" class="js-green btn"></button>
@@ -72,7 +99,7 @@
     </div>
     <br>
     <p class="but-type">Shape fill colours:</p>
-    <div class="btn-toolbar but-ft" role="toolbar" aria-label="...">
+    <div class="btn-toolbar" role="toolbar" aria-label="...">
       <button type="button" class="js-redF btn"></button>
       <button type="button" class="js-blueF btn"></button>
       <button type="button" class="js-greenF btn"></button>
@@ -100,4 +127,29 @@
 
 <template name="canvas">
   <div id="canvas" class="bordered-box"></div>
+</template>
+
+<template name="help">
+  <div class="container">
+    <div class="well lfont">
+      Have you refreshed the page and want the drawing back?
+      <ol>
+        <li>click start button</li>
+        <li> click line button</li>
+        <li>click on canvas to re-draw</li>
+      </ol>
+   </div>
+   <div class="well lfont">
+     General hints:
+     <ul>
+       <li>To start a new drawing, click clear button, then click start button.</li>
+       <li>Lines can have different colours; and varied thickness by using thicker or thinner buttons.</li>
+       <li>You have 4 shape choices and for each shape you can choose different fill or border colours.</li>
+       <li>For each shape you can also choose three different sizes.</li>
+       <li>Shapes are just placed where you click on the drawing</li>
+       <li>You can drag shapes around for interesting effects.</li>
+    </ul>
+    Return to <a class="bg-info lead" href="/drawing_page">Drawing Page</a>, and start drawing!
+  </div>
+</div>
 </template>
